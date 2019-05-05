@@ -21,3 +21,6 @@ class With16kL1Booms extends Config((site, here, up) => {
     icache = Some(r.icache.get.copy(nWays=4))
   )}
 })
+
+class With16Trackers extends WithNTrackersPerBank(16)
+class With20Trackers extends WithNTrackersPerBank(20)
