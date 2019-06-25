@@ -24,3 +24,5 @@ class With16kL1Booms extends Config((site, here, up) => {
 
 class With16Trackers extends WithNTrackersPerBank(16)
 class With20Trackers extends WithNTrackersPerBank(20)
+
+class With2GHzTarget extends WithPeripheryBusFrequency(BigInt(2133333333L))
