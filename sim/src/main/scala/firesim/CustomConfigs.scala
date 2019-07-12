@@ -4,8 +4,12 @@ import freechips.rocketchip.config.Config
 import freechips.rocketchip.subsystem._
 import boom.system.BoomTilesKey
 import midas.models._
+import testchipip.{WithBlockDevice, BlockDeviceKey, BlockDeviceConfig}
 
 // Custom SimConfigs
+class With8MSHRs extends Config((site, here, up) => {
+  case LlcKey => up(LlcKey, site).map(_.copy(mshrs = WRange(1, 8)))
+})
 class With20MSHRs extends Config((site, here, up) => {
   case LlcKey => up(LlcKey, site).map(_.copy(mshrs = WRange(1, 20)))
 })
@@ -22,7 +26,24 @@ class With16kL1Booms extends Config((site, here, up) => {
   )}
 })
 
+class With8Trackers extends WithNTrackersPerBank(8)
 class With16Trackers extends WithNTrackersPerBank(16)
 class With20Trackers extends WithNTrackersPerBank(20)
 
 class With2GHzTarget extends WithPeripheryBusFrequency(BigInt(2133333333L))
+
+class FireBoomDefaultConfig extends Config(
+    new WithBootROM ++
+    new WithPeripheryBusFrequency(BigInt(3200000000L)) ++
+    new WithExtMemSize(0x400000000L) ++ // 16GB
+    new WithoutTLMonitors ++
+    new WithUARTKey ++
+    new WithNICKey ++
+    new WithBlockDevice ++
+    new WithBoomL2TLBs(1024) ++
+    new WithBoomSynthAssertExcludes ++ // Will do nothing unless assertion synth is enabled
+    new boom.system.BoomConfig)
+
+class FireBoomDefaultDualCoreConfig extends Config(
+  new WithNDuplicatedBoomCores(2) ++
+  new FireBoomDefaultConfig)
