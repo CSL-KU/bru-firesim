@@ -3,6 +3,7 @@ package firesim.firesim
 import freechips.rocketchip.config.Config
 import freechips.rocketchip.subsystem._
 import boom.system.BoomTilesKey
+import boom.common.WithNPerfCounters
 import midas.models._
 import testchipip.{WithBlockDevice, BlockDeviceKey, BlockDeviceConfig}
 
@@ -15,6 +16,8 @@ class With20MSHRs extends Config((site, here, up) => {
 })
 
 // Custom TargetConfigs
+class With6PerfCounters extends WithNPerfCounters(6)
+
 class With5IdBits extends Config((site, here, up) => {
   case ExtMem => up(ExtMem, site).map(_.copy(idBits = 5))
 })
