@@ -5,7 +5,7 @@ import freechips.rocketchip.subsystem._
 import boom.system.BoomTilesKey
 import boom.common.WithNPerfCounters
 import midas.models._
-import testchipip.{WithBlockDevice, BlockDeviceKey, BlockDeviceConfig}
+import testchipip.WithBlockDevice
 
 // Custom SimConfigs
 class With8MSHRs extends Config((site, here, up) => {
@@ -13,6 +13,10 @@ class With8MSHRs extends Config((site, here, up) => {
 })
 class With20MSHRs extends Config((site, here, up) => {
   case LlcKey => up(LlcKey, site).map(_.copy(mshrs = WRange(1, 20)))
+})
+
+class With1RankDRAM extends Config((site, here, up) => {
+  case DramOrganizationKey => up(DramOrganizationKey, site).copy(maxRanks = 1)
 })
 
 // Custom TargetConfigs
