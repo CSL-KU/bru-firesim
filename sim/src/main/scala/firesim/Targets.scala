@@ -170,6 +170,12 @@ class FireBoomNoNICModuleImp[+L <: FireBoomNoNIC](l: L) extends BoomSubsystemMod
     with HasPeripherySerialModuleImp
     with HasPeripheryUARTModuleImp
     with HasPeripheryBlockDeviceModuleImp
+{
+  tile_inputs.foreach{ case(tile_input) =>
+    tile_input.perf.blkdev_get := RegNext(outer.controller.module.io.perf.tl_get)
+    tile_input.perf.blkdev_put := RegNext(outer.controller.module.io.perf.tl_put)
+  }
+}
 
 class FireBoomNoNICModuleImpTraced[+L <: FireBoomNoNIC](l: L) extends FireBoomNoNICModuleImp(l)
     with CanHaveBoomTraceIO
