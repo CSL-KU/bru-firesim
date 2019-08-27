@@ -39,6 +39,8 @@ class With20Trackers extends WithNTrackersPerBank(20)
 
 class With2GHzTarget extends WithPeripheryBusFrequency(BigInt(2130000000L))
 
+class With2GHzTimebase extends WithTimebase(BigInt(2130000000L))
+
 class FireBoomDefaultConfig extends Config(
     new WithBootROM ++
     new WithPeripheryBusFrequency(BigInt(3200000000L)) ++
