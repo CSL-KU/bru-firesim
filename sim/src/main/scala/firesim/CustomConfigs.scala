@@ -42,17 +42,21 @@ class With2GHzTarget extends WithPeripheryBusFrequency(BigInt(2130000000L))
 class With2GHzTimebase extends WithTimebase(BigInt(2130000000L))
 
 class FireBoomDefaultConfig extends Config(
-    new WithBootROM ++
-    new WithPeripheryBusFrequency(BigInt(3200000000L)) ++
-    new WithExtMemSize(0x400000000L) ++ // 16GB
-    new WithoutTLMonitors ++
-    new WithUARTKey ++
-    new WithNICKey ++
-    new WithBlockDevice ++
-    new WithBoomL2TLBs(1024) ++
-    new WithBoomSynthAssertExcludes ++ // Will do nothing unless assertion synth is enabled
-    new boom.system.BoomConfig)
+  new WithBootROM ++
+  new WithPeripheryBusFrequency(BigInt(3200000000L)) ++
+  new WithExtMemSize(0x400000000L) ++ // 16GB
+  new WithoutTLMonitors ++
+  new WithUARTKey ++
+  new WithNICKey ++
+  new WithBlockDevice ++
+  new WithBoomL2TLBs(1024) ++
+  new WithBoomSynthAssertExcludes ++ // Will do nothing unless assertion synth is enabled
+  new boom.system.BoomConfig)
 
 class FireBoomDefaultDualCoreConfig extends Config(
   new WithNDuplicatedBoomCores(2) ++
   new FireBoomDefaultConfig)
+
+class FireSimBoomHexaCoreConfig extends Config(
+  new WithNDuplicatedBoomCores(6) ++
+  new FireSimBoomConfig)
