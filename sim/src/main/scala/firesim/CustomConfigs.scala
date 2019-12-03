@@ -7,6 +7,7 @@ import boom.common.WithNPerfCounters
 import midas.models._
 import testchipip.WithBlockDevice
 
+
 // Custom SimConfigs
 class With8MSHRs extends Config((site, here, up) => {
   case LlcKey => up(LlcKey, site).map(_.copy(mshrs = WRange(1, 8)))
@@ -18,6 +19,7 @@ class With20MSHRs extends Config((site, here, up) => {
 class With1RankDRAM extends Config((site, here, up) => {
   case DramOrganizationKey => up(DramOrganizationKey, site).copy(maxRanks = 1)
 })
+
 
 // Custom TargetConfigs
 class With6PerfCounters extends WithNPerfCounters(6)
@@ -41,6 +43,10 @@ class With2GHzTarget extends WithPeripheryBusFrequency(BigInt(2130000000L))
 
 class With2GHzTimebase extends WithTimebase(BigInt(2130000000L))
 
+class WithCustomBoom1 extends Config(new With2GHzTimebase ++ new With2GHzTarget ++ new With6PerfCounters ++ new With20Trackers ++ new With5IdBits ++ new With16kL1Booms)
+
+
+////////////////////////
 class FireBoomDefaultConfig extends Config(
   new WithBootROM ++
   new WithPeripheryBusFrequency(BigInt(3200000000L)) ++
