@@ -97,7 +97,7 @@ make
 
 # Set up firesim-software
 cd $RDIR
-sudo pip3 install -r sw/firesim-software/python-requirements.txt
+sudo python3 -m pip install -r sw/firesim-software/python-requirements.txt
 
 # commands to run only on EC2
 # see if the instance info page exists. if not, we are not on ec2.
