@@ -20,6 +20,8 @@ class With1RankDRAM extends Config((site, here, up) => {
   case DramOrganizationKey => up(DramOrganizationKey, site).copy(maxRanks = 1)
 })
 
+class F75MHz extends WithDesiredHostFrequency(75)
+
 
 // Custom TargetConfigs
 class With6PerfCounters extends WithNPerfCounters(6)
