@@ -2,7 +2,16 @@
 This repository contains all the necessary files to replicate the experiments in the BRU paper.
 
 ## Environment Setup
-The simulation environment runs on FireSim. To set up the environment, follow the [FireSim documentation version 1.6.0](http://docs.fires.im/en/1.6.0) through the single-node simulation section. When cloning FireSim, use the URL of this repository instead.
+The simulation environment runs on FireSim. To set up the environment, follow the [FireSim documentation version 1.6.0](http://docs.fires.im/en/1.6.0) through the Initial Setup/Installation section. When cloning FireSim, use the URL of this repository instead.
+
+Then, run the following commands to complete the installation:
+```
+sudo pip3 install numpy matplotlib
+cd bru-firesim/sw/firesim-software/workloads/farzad/overlay/root/riscv-hpmcounters
+make
+cd bru-firesim/sw/firesim-software/workloads/farzad/overlay/root/isolbench/bench
+make
+```
 
 ## Running Experiments
 Make sure to source `sourceme-f1-manager.sh` before running any commands.
@@ -30,6 +39,7 @@ cd bru-firesim/bru-expr/periodic
 This will create the figure in `cdf.pdf`.
 
 ###  Effect of Group Bandwidth Regulation
+#### Figure 12
 To run the simulation:
 ```
 cd bru-firesim/sw/firesim-software
