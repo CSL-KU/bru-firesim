@@ -45,7 +45,7 @@ To run the simulation:
 cd bru-firesim/sw/firesim-software
 ./marshal -v build workloads/lt-bww-2.json
 ./marshal install workloads/lt-bww-2.json
-firesim launchrunfarm -c config_runtim2.ini && firesim infrasetup -c config_runtime2.ini && firesim runworkload -c config_runtime2.ini && firesim terminaterunfarm -q -c config_runtime2.ini
+firesim launchrunfarm -c config_runtime2.ini && firesim infrasetup -c config_runtime2.ini && firesim runworkload -c config_runtime2.ini && firesim terminaterunfarm -q -c config_runtime2.ini
 ```
 To parse the result and create Figure 12:
 ```
@@ -53,3 +53,21 @@ cd bru-firesim/bru-expr/lt-bww
 ./run-lt-bww.sh [path-to-the-result-directory]
 ```
 This will create the figure in `lt-bww.pdf`.
+
+#### Figure 13
+To run the simulation:
+```
+cd bru-firesim/sw/firesim-software
+./marshal -v build workloads/vision-lt-3.json
+./marshal install workloads/vision-lt-3.json
+firesim launchrunfarm -c config_runtime3.ini && firesim infrasetup -c config_runtime3.ini && firesim runworkload -c config_runtime3.ini && firesim terminaterunfarm -q -c config_runtime3.ini
+```
+To parse the result and create Figure 13:
+```
+cd bru-firesim/bru-expr/vision-lt
+./run-vision-lt.sh [path-to-the-result-directory]
+```
+This will create the figure in `vision-lt.pdf`.
+
+## Publication
+Farzad Farshchi, Qijing Huang, and Heechul Yun, **"BRU: Bandwidth Regulation Unit for Real-Time Multicore Processors,"** IEEE Intl. Conference on Real-Time and Embedded Technology and Applications Symposium (RTAS), April 2020. [paper](http://www.ittc.ku.edu/~farshchi/papers/bru-rtas2020-paper.pdf) | [slides](http://www.ittc.ku.edu/~farshchi/papers/bru-rtas2020-slides.pdf)
