@@ -69,5 +69,8 @@ cd bru-firesim/bru-expr/vision-lt
 ```
 This will create the figure in `vision-lt.pdf`.
 
+## Where is the BRU source code?
+The BRU source code is located [here](https://github.com/farzadfch/rocket-chip/blob/bf45db0dae0925ba86482d6ab8fa5bc37b158a93/src/main/scala/subsystem/BwRegulator.scala).
+
 ## Publication
-Farzad Farshchi, Qijing Huang, and Heechul Yun, **"BRU: Bandwidth Regulation Unit for Real-Time Multicore Processors,"** IEEE Intl. Conference on Real-Time and Embedded Technology and Applications Symposium (RTAS), April 2020. [paper](http://www.ittc.ku.edu/~farshchi/papers/bru-rtas2020-paper.pdf) | [slides](http://www.ittc.ku.edu/~farshchi/papers/bru-rtas2020-slides.pdf)
+Farzad Farshchi, Qijing Huang, and Heechul Yun, **"BRU: Bandwidth Regulation Unit for Real-Time Multicore Processors,"** IEEE Intl. Conference on Real-Time and Embedded Technology and Applications Symposium (RTAS), April 2020. [[paper](http://www.ittc.ku.edu/~farshchi/papers/bru-rtas2020-paper.pdf)] [[slides](http://www.ittc.ku.edu/~farshchi/papers/bru-rtas2020-slides.pdf)]
